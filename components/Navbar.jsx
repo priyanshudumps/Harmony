@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ethers } from "ethers";
 export default function Nabvar() {
+  
     return(
         <div className="">
             <nav className=" border-gray-200 bg-slate-500 m-3  rounded-lg backdrop-blur-md">
@@ -13,7 +15,9 @@ export default function Nabvar() {
           </Link>
 
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-         <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none  font-medium rounded-lg text-md px-8 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Get started</button>
+         <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none  font-medium rounded-lg text-md px-8 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
+         
+         >Connect</button>
         </div>
 
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
@@ -22,19 +26,19 @@ export default function Nabvar() {
 
         <Link legacyBehavior href="/sensor">
         <li>
-        <a href="#" className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black rounded  " aria-current="page"><mark className="px-5 rounded-full bg-green-300">Add Sensor</mark></a>
+        <a href="#" className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black rounded  " aria-current="page"><mark className="px-5 rounded-full tracking-tight bg-green-300 hover:bg-green-400">Add Sensor</mark></a>
         </li>
         </Link>
 
         <Link legacyBehavior href="/sale">
         <li>
-        <a href="#" className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black rounded  ">Sale</a>
+        <a href="#" className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black rounded tracking-tight ">Sale</a>
         </li>
         </Link>
         
         <Link legacyBehavior href="/buy">
         <li>
-        <a href="#" className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black  ">Buy</a>
+        <a href="#" className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black tracking-tight ">Buy</a>
         </li>
         </Link>
 
