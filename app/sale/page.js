@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { createSellOrder, addGenStation, getGwTokenBalance } from "../../utils";
+import { createSellOrder, addGenStation, getHmTokenBalance } from "../../utils";
 import { ToastContainer, toast , Slide , Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export default function Main() {
-  const [gwBalance, setGwBalance] = useState("Fetching ...");
+  const [hmBalance, setHmBalance] = useState("Fetching ...");
   const [noOfTokens, setNoOfTokens] = useState(0);
   const [price, setPrice] = useState(0);
   const [isOption, setIsOption] = useState(false);
@@ -14,14 +14,14 @@ export default function Main() {
   const [toggle, setToggle] = useState(false);
 
 
-  async function handleGwBalanceUpdate() {
-    console.log("Fetching GW token balance...");
+  async function handleHmBalanceUpdate() {
+    console.log("Fetching HM token balance...");
     try {
-      const updatedBalance = await getGwTokenBalance();
+      const updatedBalance = await getHmTokenBalance();
       console.log("Fetched balance:", updatedBalance);
-      setGwBalance(updatedBalance);
+      setHmBalance(updatedBalance);
     } catch (error) {
-      console.error("Failed to fetch GW token balance:", error);
+      console.error("Failed to fetch HM token balance:", error);
     }
   }
 
@@ -54,7 +54,7 @@ export default function Main() {
   }
 
   useEffect(() => {
-    handleGwBalanceUpdate();
+    handleHmBalanceUpdate();
   }, []);
 
   const handleToggle = () => {
@@ -67,7 +67,7 @@ export default function Main() {
       <Navbar />
       {/* <button
         onClick={() => {
-          handleGwBalanceUpdate();
+          handleHmBalanceUpdate();
         }}
       >
         click
@@ -75,7 +75,7 @@ export default function Main() {
 
       <div className=" mt-16 items-center justify-center w-full">
         <div className=" text-4xl font-extrabold tracking-tight lg:text-5xl text-center border-1 rounded-md content-center font-roboto p-2  ">
-          You have generated <mark className="px-5 rounded-lg bg-white"><span className="text-green-600">{gwBalance}</span></mark>{" "}
+          You have generated <mark className="px-5 rounded-lg bg-white"><span className="text-green-600">{hmBalance}</span></mark>{" "}
           HM tokens{" "}
           
         </div>
@@ -193,7 +193,7 @@ export default function Main() {
               <button
                 onClick={() => {
                   handleSubmit();
-                  toast.success('🦄 Wow so easy!', {
+                  toast.success('sale successfully !', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,

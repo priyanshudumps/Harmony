@@ -1,22 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { getOrdersArray, addGenStation, getMarketPrice, getGwTokenBalance,} from "../../utils";
+import { getOrdersArray, addGenStation, getMarketPrice, getHmTokenBalance,} from "../../utils";
 import Card from "../../components/Card";
 
 export default function Main() {
-  const [gwBalance, setGwBalance] = useState("Fetching ...");
+  const [hmBalance, setHmBalance] = useState("Fetching ...");
   const [marketPrice, setMarketPrice] = useState("Fetching");
   const [ordersArray, setOrdersArray] = useState([]);
 
-  async function handleGwBalanceUpdate() {
+  async function handleHmBalanceUpdate() {
     //console.log("Fetching GW token balance...");
     try {
-      const updatedBalance = await getGwTokenBalance();
+      const updatedBalance = await getHmTokenBalance();
       console.log("Fetched balance:", updatedBalance);
-      setGwBalance(updatedBalance);
+      setHmBalance(updatedBalance);
     } catch (error) {
-      console.error("Failed to fetch GW token balance:", error);
+      console.error("Failed to fetch HM token balance:", error);
     }
   }
 
@@ -45,12 +45,12 @@ export default function Main() {
       console.log("Fetched Market Price:", updatedPrice);
       setMarketPrice(updatedPrice);
     } catch (error) {
-      console.error("Failed to fetch GW token balance:", error);
+      console.error("Failed to fetch HM token balance:", error);
     }
   }
 
   useEffect(() => {
-    handleGwBalanceUpdate();
+    handleHmBalanceUpdate();
     updateArray();
     updateMarketPrice();
   }, [ordersArray]);
@@ -61,8 +61,8 @@ export default function Main() {
 
       <div className="border-2 border-zinc-900 p-2 mt-10 mx-60 rounded ">
       <div className="text-center text-3xl  font-extrabold tracking-tight">
-        You have generated <span className="text-green-600">{gwBalance}</span>{" "}
-        GW tokens{" "}
+        You have generated <span className="text-green-600">{hmBalance}</span>{" "}
+        HM tokens{" "}
       </div>
 
       <div className="text-center text-3xl pt-2 font-extrabold tracking-tight">

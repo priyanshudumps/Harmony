@@ -60,7 +60,7 @@ export async function counterTest() {
 }
 
 export async function createSellOrder(
-  _noOfGWTokens = 0,
+  _noOfHMTokens = 0,
   _sellPrice = 0,
   _leasePrice = 0,
   _duration = 0
@@ -70,7 +70,7 @@ export async function createSellOrder(
   const contract = new ethers.Contract(address, abi, signer);
   const tx = await contract.listOrder(
     ethers.parseEther(_sellPrice.toString()),
-    _noOfGWTokens,
+    _noOfHMTokens,
     ethers.parseEther(_leasePrice.toString()),
     _duration
   );
@@ -96,19 +96,19 @@ export async function buyOption(orderId, value) {
   console.log(tx);
 }
 
-export async function createLeaseOrder(_sellPrice, _noOfGWTokens, _duration) {
+export async function createLeaseOrder(_sellPrice, _noOfHMTokens, _duration) {
   const abi = registryAbi;
   const address = registryAddress;
   const contract = new ethers.Contract(address, abi, signer);
   const tx = await contract.createSellOrder(
     ethers.parseEther(_sellPrice),
-    _noOfGWTokens,
+    _noOfHMTokens,
     _duration
   );
   console.log(tx);
 }
 
-export async function getGwTokenBalance() {
+export async function getHmTokenBalance() {
   await connectWithMetamask();
   // console.log(signer.address);
   const abi = registryAbi;

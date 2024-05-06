@@ -31,7 +31,7 @@ const card = ({ array }) => {
           <></>
         )}
 
-        <span className="ml-5 text-xl">GW Tokens</span>
+        <span className="ml-5 text-xl">HM Tokens</span>
         <div className="border rounded-full m-2 mb-5 ml-5 w-1/3 text-2xl px-3">
           {Number(array[10])}
         </div>
