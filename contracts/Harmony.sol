@@ -13,7 +13,7 @@ contract Registry {
         uint256 optionFee;
         uint256 optionDuration;
         bool fulfilled;
-        uint256 noOfGWTokens;
+        uint256 noOfHMTokens;
         uint256 createdAt;
     }
 
@@ -33,7 +33,7 @@ contract Registry {
     event optionCreated(
         address indexed lessor,
         uint256 optionId,
-        uint256 noOfGWTokens,
+        uint256 noOfHMTokens,
         uint256 collateral
     );
     event optionTaken(address indexed lessee, uint256 optionId);
@@ -54,7 +54,7 @@ contract Registry {
         return (arrLength);
     }
 
-    function updateGWTokenBalance(string memory _code, uint256 _newValue)
+    function updateHMTokenBalance(string memory _code, uint256 _newValue)
         public
     {
         //require(checkVerifiedSensors(_code));
@@ -66,7 +66,7 @@ contract Registry {
         balances[genStationToAddress[_code]] = _newValue;
     }
 
-    function returnGwBalance() public view returns (uint256) {
+    function returnHmBalance() public view returns (uint256) {
         return (balances[msg.sender]);
     }
 
@@ -81,14 +81,14 @@ contract Registry {
         order.owner = msg.sender;
         order.fulfilled = true;
         order.optionDuration = 0;
-        balances[msg.sender] += order.noOfGWTokens;
+        balances[msg.sender] += order.noOfHMTokens;
         payable(order.seller).transfer(msg.value);
-        credsMarketPrice = order.sellPrice / order.noOfGWTokens;
+        credsMarketPrice = order.sellPrice / order.noOfHMTokens;
     }
 
     function listOrder(
         uint256 _sellPrice,
-        uint256 _noOfGWTokens,
+        uint256 _noOfHMTokens,
         uint256 _optionPrice,
         uint256 _duration
     ) public {
@@ -96,7 +96,7 @@ contract Registry {
         updateTime();
         checkExpiredOptions();
 
-        require(balances[msg.sender] >= _noOfGWTokens, "Insufficient GWTokens");
+        require(balances[msg.sender] >= _noOfHMTokens, "Insufficient HMTokens");
         //require(usdtToken.transferFrom(msg.sender, address(this), _collateral), "Collateral transfer failed");
 
         orderArray.push(
@@ -111,12 +111,12 @@ contract Registry {
                 optionFee: _optionPrice,
                 optionDuration: _duration,
                 fulfilled: false,
-                noOfGWTokens: _noOfGWTokens,
+                noOfHMTokens: _noOfHMTokens,
                 createdAt: block.timestamp
             })
         );
-        balances[msg.sender] -= _noOfGWTokens;
-        // emit optionCreated(msg.sender, optionId, _noOfGWTokens, _collateral);
+        balances[msg.sender] -= _noOfHMTokens;
+        // emit optionCreated(msg.sender, optionId, _noOfHMTokens, _collateral);
     }
 
     function takeOnOption(uint256 _orderId) public payable {
@@ -130,7 +130,7 @@ contract Registry {
         order.owner = msg.sender;
         order.fulfilled = true;
         order.createdAt = block.timestamp;
-        balances[msg.sender] += order.noOfGWTokens;
+        balances[msg.sender] += order.noOfHMTokens;
         payable(order.seller).transfer(msg.value);
     }
 
@@ -142,7 +142,7 @@ contract Registry {
 
     function endOption(uint256 _orderId) public payable onlyAdmin {
         Order storage order = orderArray[_orderId];
-        balances[order.owner] -= order.noOfGWTokens;
+        balances[order.owner] -= order.noOfHMTokens;
         order.fulfilled = false;
         order.owner = order.seller;
     }
