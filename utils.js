@@ -8,14 +8,18 @@ let signer = null;
 
 let provider;
 
-async function connectWithMetamask() {
+export async function connectWithMetamask() {
   if (window.ethereum == null) {
     console.log("MetaMask not installed; using read-only defaults");
     provider = ethers.getDefaultProvider();
+    console.log(provider);
   } else {
     provider = await new ethers.BrowserProvider(window.ethereum);
+    console.log(provider);
 
     signer = await provider.getSigner();
+    console.log(signer);
+    return await provider.send("eth_requestAccounts", [0]);
   }
 }
 connectWithMetamask();
@@ -130,7 +134,7 @@ export async function getMarketPrice() {
   const contract = new ethers.Contract(address, abi, provider);
   const tx = await contract.credsMarketPrice();
 
-  return ((Number(tx/1000000000000000n))/1000).toString();
+  return (Number(tx / 1000000000000000n) / 1000).toString();
 }
 
 export async function getOrdersArray() {
@@ -158,10 +162,11 @@ export async function getOrdersArray() {
 
 export async function addGenStation(_code) {
   const encodedCode = await getSHA256Hash(_code);
-  console.log(encodedCode);
+  //console.log(encodedCode);
   const abi = registryAbi;
   const address = registryAddress;
   const contract = new ethers.Contract(address, abi, signer);
+  console.log(contract);
   const tx = await contract.addGenStation(encodedCode);
   console.log(tx);
 }
