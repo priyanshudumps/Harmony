@@ -1,6 +1,6 @@
 "use client";
 
-import { ethers, parseEther } from "ethers";
+import { ethers, parseEther, parseUnits } from "ethers";
 import { registryAbi, registryAddress } from "./contractRefs";
 import { getSHA256Hash } from "boring-webcrypto-sha256";
 
@@ -86,8 +86,12 @@ export async function buyOrder(orderId, value) {
   const abi = registryAbi;
   const address = registryAddress;
   const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
   const tx = await contract.createBuyOrder(orderId, {
     value: value,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
   });
   console.log(tx);
 }
@@ -96,7 +100,13 @@ export async function buyOption(orderId, value) {
   const abi = registryAbi;
   const address = registryAddress;
   const contract = new ethers.Contract(address, abi, signer);
-  const tx = await contract.takeOnOption(orderId, { value: value });
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.takeOnOption(orderId, {
+    value: value,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
   console.log(tx);
 }
 
