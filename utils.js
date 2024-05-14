@@ -213,4 +213,17 @@ export async function consumeToken(orderId, value) {
   console.log(tx);
 }
 
-export async function isBrand() {}
+export async function isBrand() {
+  await connectWithMetamask();
+  // console.log(signer.address);
+  const abi = registryAbi;
+  const address = registryAddress;
+  // console.log(address);
+  // console.log(abi);
+  // console.log(provider);
+  const contract = new ethers.Contract(address, abi, provider);
+  const tx = await contract.isBrand();
+  //await tx.wait();
+  //console.log(tx.toString());
+  return tx.toString();
+}
