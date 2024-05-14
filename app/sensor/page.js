@@ -19,8 +19,8 @@ function AddGenSensor() {
       handleAddSensor();
 
       toast.success('GenSensor Added Successfully !', {
-      position: "top-right",
-      autoClose: 5000,
+      position: "bottom-right",
+      autoClose: 10000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
