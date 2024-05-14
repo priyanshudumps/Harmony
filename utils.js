@@ -213,6 +213,19 @@ export async function consumeToken(orderId, value) {
   console.log(tx);
 }
 
+export async function addPromotionSecret(promotionSecret) {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.addPromotionSecret(promotionSecret, {
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
+  console.log(tx);
+}
+
 export async function checkIsBrand() {
   await connectWithMetamask();
   // console.log(signer.address);
@@ -226,4 +239,42 @@ export async function checkIsBrand() {
   //await tx.wait();
   //console.log(tx.toString());
   return tx;
+}
+
+export async function hashValues(value1, value2) {
+  let hashedValue = "";
+  const separator = "|"; // Separator to distinguish between hashed values
+
+  for (let i = 0; i < Math.max(value1.length, value2.length); i++) {
+    const char1 = value1[i] || "";
+    const char2 = value2[i] || "";
+    hashedValue += String.fromCharCode(
+      char1.charCodeAt(0) ^ char2.charCodeAt(0)
+    );
+  }
+
+  return hashedValue + separator + value1.length + separator + value2.length;
+}
+
+export async function unhashValues(hashedString) {
+  const [hashedValue, length1, length2] = hashedString.split("|");
+  let value1 = "";
+  let value2 = "";
+
+  for (let i = 0; i < hashedValue.length; i++) {
+    const char = hashedValue[i];
+    const char1 = value1[i] || "";
+    const char2 = value2[i] || "";
+    const unhashedChar = String.fromCharCode(
+      char.charCodeAt(0) ^ char1.charCodeAt(0) ^ char2.charCodeAt(0)
+    );
+
+    if (i < length1) {
+      value1 += unhashedChar;
+    } else {
+      value2 += unhashedChar;
+    }
+  }
+
+  return { store: value1, key: value2 };
 }
