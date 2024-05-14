@@ -1,5 +1,142 @@
 export const registryAbi = [
   {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_seller",
+        type: "address",
+      },
+      {
+        internalType: "string",
+        name: "_promotionSecret",
+        type: "string",
+      },
+    ],
+    name: "addEligiblePromotions",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_code",
+        type: "string",
+      },
+    ],
+    name: "addGenStation",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_promotionSecret",
+        type: "string",
+      },
+    ],
+    name: "addPromotionSecret",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "checkExpiredOptions",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_code",
+        type: "string",
+      },
+    ],
+    name: "checkVerifiedSensors",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_orderId",
+        type: "uint256",
+      },
+    ],
+    name: "consumeToken",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_orderId",
+        type: "uint256",
+      },
+    ],
+    name: "createBuyOrder",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_orderId",
+        type: "uint256",
+      },
+    ],
+    name: "endOption",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_sellPrice",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_noOfHMTokens",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_optionPrice",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_duration",
+        type: "uint256",
+      },
+    ],
+    name: "listOrder",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     anonymous: false,
     inputs: [
       {
@@ -81,16 +218,41 @@ export const registryAbi = [
     type: "event",
   },
   {
-    inputs: [],
-    name: "LatestTimestamp",
-    outputs: [
+    inputs: [
       {
         internalType: "uint256",
-        name: "",
+        name: "_value",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "_user",
+        type: "address",
+      },
+    ],
+    name: "redeemTokens",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "registerAsBrand",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_orderId",
         type: "uint256",
       },
     ],
-    stateMutability: "view",
+    name: "takeOnOption",
+    outputs: [],
+    stateMutability: "payable",
     type: "function",
   },
   {
@@ -100,10 +262,65 @@ export const registryAbi = [
         name: "_code",
         type: "string",
       },
+      {
+        internalType: "uint256",
+        name: "_newValue",
+        type: "uint256",
+      },
     ],
-    name: "addGenStation",
+    name: "updateHMTokenBalance",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "updateTime",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "addressToEligiblePromotions",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    name: "addressToPromotionSecret",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -127,45 +344,6 @@ export const registryAbi = [
   },
   {
     inputs: [],
-    name: "checkExpiredOptions",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_code",
-        type: "string",
-      },
-    ],
-    name: "checkVerifiedSensors",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_orderId",
-        type: "uint256",
-      },
-    ],
-    name: "createBuyOrder",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "credsMarketPrice",
     outputs: [
       {
@@ -175,19 +353,6 @@ export const registryAbi = [
       },
     ],
     stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_orderId",
-        type: "uint256",
-      },
-    ],
-    name: "endOption",
-    outputs: [],
-    stateMutability: "payable",
     type: "function",
   },
   {
@@ -210,6 +375,44 @@ export const registryAbi = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_seller",
+        type: "address",
+      },
+    ],
+    name: "getAllEligiblePromotions",
+    outputs: [
+      {
+        internalType: "string[]",
+        name: "",
+        type: "string[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    name: "isBrand",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "isVerified",
     outputs: [
@@ -223,31 +426,16 @@ export const registryAbi = [
     type: "function",
   },
   {
-    inputs: [
+    inputs: [],
+    name: "LatestTimestamp",
+    outputs: [
       {
         internalType: "uint256",
-        name: "_sellPrice",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_noOfHMTokens",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_optionPrice",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_duration",
+        name: "",
         type: "uint256",
       },
     ],
-    name: "listOrder",
-    outputs: [],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -327,19 +515,20 @@ export const registryAbi = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_value",
-        type: "uint256",
-      },
-      {
         internalType: "address",
-        name: "_user",
+        name: "",
         type: "address",
       },
     ],
-    name: "redeemTokens",
-    outputs: [],
-    stateMutability: "nonpayable",
+    name: "recBalances",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -368,44 +557,6 @@ export const registryAbi = [
     stateMutability: "view",
     type: "function",
   },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_orderId",
-        type: "uint256",
-      },
-    ],
-    name: "takeOnOption",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_code",
-        type: "string",
-      },
-      {
-        internalType: "uint256",
-        name: "_newValue",
-        type: "uint256",
-      },
-    ],
-    name: "updateHMTokenBalance",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "updateTime",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
 ];
 
-export const registryAddress = "0xa79A6326251B0051788DCa2337137afc678c2A7B";
+export const registryAddress = "0x3c157383Bf6dd7d403019AEb8CAeD3257fc7EeEf";

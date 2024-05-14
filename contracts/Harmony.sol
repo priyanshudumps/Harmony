@@ -16,19 +16,26 @@ contract Registry {
         uint256 noOfHMTokens;
         uint256 createdAt;
     }
+    
+   
 
     string[] verifiedSensors = [
-        "973b98d4ef3aac8c991d5d027837c3c6767ec05ebe20e5c49c03d8dde588de88",
-        "f467ca2dbbe61e928e91d6ff69b5041396d09000785aeb5ea5a8b00482ab4754"
+        "b8715fb98feb70c3f3f1b01174577bbdbf7fe32892846aaad96776fb58270216",
+        "2105742f5adb229dd4be3898314fdd0f0dd35efbf0a5724cc7d5a17eee9afd1f"
     ];
 
     Order[] public orderArray;
+ 
 
     uint256 public LatestTimestamp;
     uint256 public credsMarketPrice = 10;
 
     mapping(address => uint256) public balances;
-    mapping(string => address) public genStationToAddress;
+    mapping(address => uint256) public recBalances;
+    mapping(string => address) public   genStationToAddress;
+    mapping(address => string[]) public addressToEligiblePromotions;
+    mapping(address => bool)public isBrand;
+    mapping(address => string)public addressToPromotionSecret;
 
     event optionCreated(
         address indexed lessor,
@@ -43,6 +50,20 @@ contract Registry {
         uint256 refundAmount,
         uint256 extraAmount
     );
+
+    function addPromotionSecret(string memory _promotionSecret)public{
+        addressToPromotionSecret[msg.sender]=_promotionSecret;
+    }
+    function registerAsBrand()public{
+        isBrand[msg.sender]=true;
+    }
+
+    function addEligiblePromotions(address _seller,string memory _promotionSecret)public{
+        addressToEligiblePromotions[_seller].push(_promotionSecret);
+    }
+   function getAllEligiblePromotions(address _seller) public view returns (string[] memory) {
+        return addressToEligiblePromotions[_seller];
+    }
 
     function addGenStation(string memory _code) public {
         genStationToAddress[_code] = msg.sender;
@@ -84,6 +105,23 @@ contract Registry {
         balances[msg.sender] += order.noOfHMTokens;
         payable(order.seller).transfer(msg.value);
         credsMarketPrice = order.sellPrice / order.noOfHMTokens;
+    }
+    function consumeToken(uint256 _orderId) public payable {
+        // to update time in cintract and end options
+        updateTime();
+        checkExpiredOptions();
+        Order storage order = orderArray[_orderId];
+        require(msg.value >= order.sellPrice, "Insufficient value sent");
+        require(!order.fulfilled, "Order already fulfilled");
+        require(isBrand[msg.sender]);
+
+        order.owner = msg.sender;
+        order.fulfilled = true;
+        order.optionDuration = 0;
+        recBalances[msg.sender] += order.noOfHMTokens;
+        addEligiblePromotions(order.seller,addressToPromotionSecret[msg.sender]);
+        payable(order.seller).transfer(msg.value); 
+       credsMarketPrice = order.sellPrice / order.noOfHMTokens;
     }
 
     function listOrder(
