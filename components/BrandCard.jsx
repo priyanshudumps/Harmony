@@ -1,4 +1,5 @@
-import { buyOrder, buyOption } from "../utils";
+import { consumeToken, buyOption } from "../utils";
+
 const BrandCard = ({ array }) => {
   console.log(array[9]);
   // for(let i = 0;i<array.length;i++){
@@ -39,10 +40,12 @@ const BrandCard = ({ array }) => {
         <div class="px-5 pb-5">
           <div class=" items-center justify-between">
             <button
-              onClick={() => buyOrder(Number(array[2]), array[3].toString())}
+              onClick={() =>
+                consumeToken(Number(array[2]), array[3].toString())
+              }
               className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-md px-8 py-1.5 text-center dark:focus:ring-black"
             >
-              Buy
+              Consume
             </button>
 
             {Number(array[8]) > 0 ? (
@@ -50,7 +53,7 @@ const BrandCard = ({ array }) => {
                 onClick={() => buyOption(Number(array[2]), array[7].toString())}
                 className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-8 py-2.5 text-center dark:focus:ring-black ml-20"
               >
-                Consume Token
+                Buy Option
               </button>
             ) : (
               <></>
