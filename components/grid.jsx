@@ -65,12 +65,12 @@ export const GridBackground = () => {
       </div>
       
       
-
-      {ordersArray.map((data) => {
+      <div className="flex  flex-wrap content-center justify-center">{ordersArray.map((data) => {
         if (!data[9]) {
           return <Card key={data[0]} array={data}></Card>;
         }
-      })}
+      })}</div>
+      
     </div>
   
   );
