@@ -213,7 +213,7 @@ export async function consumeToken(orderId, value) {
   console.log(tx);
 }
 
-export async function isBrand() {
+export async function checkIsBrand() {
   await connectWithMetamask();
   // console.log(signer.address);
   const abi = registryAbi;
@@ -222,8 +222,8 @@ export async function isBrand() {
   // console.log(abi);
   // console.log(provider);
   const contract = new ethers.Contract(address, abi, provider);
-  const tx = await contract.isBrand();
+  const tx = await contract.checkIsBrand(signer.address);
   //await tx.wait();
   //console.log(tx.toString());
-  return tx.toString();
+  return tx;
 }
