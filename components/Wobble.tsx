@@ -16,27 +16,26 @@ export function WobbleCardDemo() {
       >
         <div className="max-w-xs">
           <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            Gensensor technology powers the entire process
+          Tackles Carbon Footprint
           </h2>
           <p className="mt-4 text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
+          Directly addresses climate change by motivating individuals and businesses to reduce carbon emissions through renewable energy adoption.
           </p>
         </div>
-        <Image
-          src=""
+        <img
+          src="https://st.depositphotos.com/1026550/4373/i/450/depositphotos_43735653-stock-photo-fighting.jpg"
           width={500}
           height={500}
           alt="linear demo image"
-          className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
+          className="absolute  lg:-right-[20%] grayscale filter -bottom-10 object-contain rounded-2xl"
         />
       </WobbleCard>
       <WobbleCard containerClassName="col-span-1 min-h-[300px]">
         <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-          No shirt, no shoes, no weapons.
+        Green Energy Token Marketplace
         </h2>
         <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-          If someone yells “stop!”, goes limp, or taps out, the fight is over.
+        Enables the buying and selling of Tokens that represent renewable energy generation, fostering a transparent and active market.
         </p>
       </WobbleCard>
       <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
@@ -45,16 +44,15 @@ export function WobbleCardDemo() {
           Gensensor technology powers the entire process
           </h2>
           <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
+          Tracks and converts renewable energy production into digital tokens, incentivizing green energy generation.
           </p>
         </div>
-        <Image
-          src="/linear.webp"
+        <img
+          src="https://news.mit.edu/sites/default/files/images/202401/MIT-Harvesting-Sensors-01-PRESS.jpg"
           width={500}
           height={500}
           alt="linear demo image"
-          className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
+          className="absolute -right-10 md:-right-[20%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
         />
       </WobbleCard>
     </div>

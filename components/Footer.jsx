@@ -9,18 +9,14 @@ export default function Footer() {
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Harmony</span>
             </a>
-            <ul class="flex flex-wrap items-center mb-6 text-md font-medium text-gray-900 sm:mb-0 ">
+            <ul class="flex flex-wrap items-center mb-6 text-xl font-bold text-gray-900 sm:mb-0 ">
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    <a href="https://github.com/akashbiswas0/Harmony" class="hover:underline me-4 md:me-6">About</a>
                 </li>
+                
+                
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a href="https://twitter.com/akashbtwts" class="hover:underline">Contact 1</a>
                 </li>
             </ul>
         </div>

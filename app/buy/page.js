@@ -1,18 +1,17 @@
-"use client";
-import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
+"use client"
+import Navbar from "../../components/Navbar";
 import { getOrdersArray, addGenStation, getMarketPrice, getHmTokenBalance,} from "../../utils";
 import Card from "../../components/Card";
-import { GridBackgroundDemo } from "../../components/grid";
+import { GridBackground } from "../../components/Grid";
 
-export default function Main() {
- 
+export default function Buy() {
 
   return (
     <div className="w-full h-max-screen ">
       <Navbar />
-      <GridBackgroundDemo />
-
+      <GridBackground />
      </div>
   );
 }
+
+

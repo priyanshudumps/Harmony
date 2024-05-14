@@ -18,12 +18,11 @@ export function HeroHighlightDemo() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-5xl px-4 mx-20 font-Anta font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center "
+        className="text-4xl px-4 mt-12 mx-20 font-Anta font-bold text-neutral-700  max-w-4xl leading-relaxed lg:leading-snug text-center "
       >
-        All you need is Everything is far away. Everything
-        is a{" "}
+        Addressing the challenge of renewable energy integration, our project incentivizes individual contributions to the grid, {" "}
         <Highlight className="text-black rounded-md">
-          A sensor , Trading skills , solar installations
+        making sustainable energy more accessible and rewarding.
         </Highlight>
       </motion.h1>
     </HeroHighlight>
