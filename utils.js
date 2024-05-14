@@ -186,3 +186,31 @@ export async function updateHMTokenBalance() {
   const address = registryAddress;
   const contract = new ethers.Contract(address, abi, signer);
 }
+
+export async function registerAsBrand() {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.registerAsBrand({
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
+  console.log(tx);
+}
+export async function consumeToken(orderId, value) {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.consumeToken(orderId, {
+    value: value,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
+  console.log(tx);
+}
+
+export async function isBrand() {}
