@@ -6,7 +6,7 @@ export function AnimatedPinDemo() {
   return (
     <div className="h-[40rem] w-full flex items-center justify-center ">
       <PinContainer
-        title="Growing with Harmony"
+        title="Grow with Harmony"
         href="https://twitter.com/mannupaaji"
       >
         <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[40rem] h-[30rem] ">
