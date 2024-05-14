@@ -47,7 +47,7 @@ export const GridBackground = () => {
     updateMarketPrice();
   }, [ordersArray]);
   return (
-    <div className=" w-full bg-gradient-to-r from-slate-400 to-slate-300 dark:bg-grid-white/[0.2] max-h-screen flex  flex-wrap items-center justify-center">
+    <div className=" w-full bg-gradient-to-r from-slate-400 to-slate-300 dark:bg-grid-white/[0.2] max-h-screen  items-center justify-center">
       <h1 className="scroll-m-20 text-5xl font-extrabold text-center tracking-tight lg:text-5xl mt-10">
         Buy Some
         <mark className="bg-yellow-500 ml-3 rounded-lg px-3">
@@ -73,20 +73,14 @@ export const GridBackground = () => {
           per Token{" "}
         </div>
 
-        <Link href="./brand">
-          <button className="px-8 border-2 py-2 ml-40 text-xl border-black rounded-xl font-extrabold bg-indigo-400 hover:bg-indigo-200 mt-8">
-            Brand Setup
-          </button>
-        </Link>
+        
       </div>
-      
-      
-      <div className="flex  flex-wrap content-center justify-center">{ordersArray.map((data) => {
+
+      {ordersArray.map((data) => {
         if (!data[9]) {
           return <Card key={data[0]} array={data}></Card>;
         }
-      })}</div>
-      
+      })}
     </div>
   );
 };

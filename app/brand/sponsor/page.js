@@ -58,7 +58,7 @@ export default function Sponsor(){
     return(
         <div>
             <BrandNav/>
-            <div className=" w-full bg-gradient-to-r from-slate-400 to-slate-300 dark:bg-grid-white/[0.2] max-h-screen flex  flex-wrap items-center justify-center">
+            <div className=" w-full bg-gradient-to-r from-slate-400 to-slate-300 dark:bg-grid-white/[0.2] max-h-screen  items-center justify-center">
       {/* Radial gradient for the container to give a faded look */}
       {/* <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-slate-400 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div> */}
       {/* <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
@@ -81,12 +81,13 @@ export default function Sponsor(){
       
       </div>
       
-
-      {ordersArray.map((data) => {
-        if (!data[9]) {
-          return <Card key={data[0]} array={data}></Card>;
-        }
-      })}
+      <div className="flex flex-wrap content-center justify-center">
+        {ordersArray.map((data) => {
+          if (!data[9]) {
+            return <Card key={data[0]} array={data}></Card>;
+          }
+        })}
+      </div>
     </div>
 
         </div>

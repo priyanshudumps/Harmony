@@ -186,3 +186,44 @@ export async function updateHMTokenBalance() {
   const address = registryAddress;
   const contract = new ethers.Contract(address, abi, signer);
 }
+
+export async function registerAsBrand() {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.registerAsBrand({
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
+  console.log(tx);
+}
+export async function consumeToken(orderId, value) {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.consumeToken(orderId, {
+    value: value,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
+  console.log(tx);
+}
+
+export async function checkIsBrand() {
+  await connectWithMetamask();
+  // console.log(signer.address);
+  const abi = registryAbi;
+  const address = registryAddress;
+  // console.log(address);
+  // console.log(abi);
+  // console.log(provider);
+  const contract = new ethers.Contract(address, abi, provider);
+  const tx = await contract.checkIsBrand(signer.address);
+  //await tx.wait();
+  //console.log(tx.toString());
+  return tx;
+}

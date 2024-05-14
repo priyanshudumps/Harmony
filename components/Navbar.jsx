@@ -87,9 +87,17 @@ export default function Nabvar() {
                   </a>
                 </li>
               </Link>
-
+              <Link legacyBehavior href="/brand">
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black tracking-tight "
+                  >
+                    Brand demo
+                  </a>
+                </li>
+              </Link>
               
-
             </ul>
           </div>
         </div>
