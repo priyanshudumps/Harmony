@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { createSellOrder, addGenStation, getHmTokenBalance } from "../../utils";
 import { ToastContainer, toast , Slide , Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/link";
 export default function Main() {
   const [hmBalance, setHmBalance] = useState("Fetching ...");
   const [noOfTokens, setNoOfTokens] = useState(0);
@@ -65,6 +66,7 @@ export default function Main() {
   return (
     <div className=" h-max-screen w-full  ">
       <Navbar />
+      
       {/* <button
         onClick={() => {
           handleHmBalanceUpdate();
@@ -74,16 +76,15 @@ export default function Main() {
       </button> */}
 
       <div className=" mt-16 items-center justify-center w-full">
-        <div className=" text-4xl font-extrabold tracking-tight lg:text-5xl text-center border-1 rounded-md content-center font-roboto p-2  ">
+        <div className=" text-4xl font-extrabold tracking-tight lg:text-5xl text-center border-1 rounded-md content-center font-roboto p-2 border-2 mx-80 py-3 border-black ">
           You have generated <mark className="px-5 rounded-lg bg-white"><span className="text-green-600">{hmBalance}</span></mark>{" "}
           HM tokens{" "}
-          
         </div>
 
         <div className=" rounded-lg w-1/3 items-center justify-center mx-40 mt-8 ">
           <label
             for="default-input"
-            className="block mb-2 font-roboto font-medium tracking-tight text-gray-900 mt-2 ml-0 text-4xl"
+            className="block mb-2 font-roboto font-semibold tracking-tight text-gray-900 mt-2 ml-0 text-4xl"
           >
             List Sales
           </label>
@@ -102,7 +103,7 @@ export default function Main() {
                 onChange={(e) => {
                   handleNoOfTokenUpdate(e.target.value);
                 }}
-                className="mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/8 p-2.5 dark:bg-gray-700    dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500    dark:focus:border-blue-500"
+                className="mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-md font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/8 p-2.5   dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500    dark:focus:border-blue-500"
               />
               <label htmlFor="" className="text-xl mt-5 font-semibold">
                 Total price (Lisk)
@@ -111,11 +112,12 @@ export default function Main() {
               <input
                 type="number"
                 id="priceField"
+                placeholder="Total price"
                 value={price}
                 onChange={(e) => {
                   handlepriceUpdate(e.target.value);
                 }}
-                className="mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/8 p-2.5 dark:bg-gray-700    dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500    dark:focus:border-blue-500"
+                className="mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-md font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/8 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500    dark:focus:border-blue-500"
               />
 
               <br />
@@ -132,8 +134,8 @@ export default function Main() {
                   onChange={handleToggle}
                 />
                 <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span className="ms-3 text-lg font-medium text-gray-900 dark:text-gray-300">
-                  Offer as option
+                <span className="ms-3 text-xl font-semibold text-gray-900">
+                  Offer as Option
                 </span>
               </label>
               <br />

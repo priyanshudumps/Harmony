@@ -180,3 +180,9 @@ export async function addGenStation(_code) {
   const tx = await contract.addGenStation(encodedCode);
   console.log(tx);
 }
+
+export async function updateHMTokenBalance() {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+}

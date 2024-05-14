@@ -29,7 +29,7 @@ export default function Landing() {
             <h1 className=" text-5xl font-extrabold tracking-tight lg:text-6xl mt-10 text-center">
                     Generate Revenue With Harmony .
                  </h1>
-          <h1 className=" text-5xl font-extrabold font-serif tracking-tight lg:text-2xl mt-1 text-center">
+          <h1 className=" text-3xl font-extrabold font-Anta tracking-tight  mt-1 text-center">
                     Leveraging the power of Lisk 🩵.
                  </h1>
             <div className="mt-8">

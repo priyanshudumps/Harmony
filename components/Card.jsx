@@ -5,25 +5,25 @@ const card = ({ array }) => {
   //   console.log(i)
   // }
   return (
-    <div className="flex flex-row justify-center content-center pb-5">
-      <div class="w-1/2  border-2 border-gray-800 rounded-xl shadow bg-gray-400 mt-14  backdrop-blur-lg pt-5">
+    <div className="flex mx-8 w-3/7 justify-center content-center pb-5">
+      <div class="w-full   border-2 border-gray-800 rounded-xl shadow bg-gray-400 mt-14  backdrop-blur-lg pt-5">
         <span className="ml-5 mt-5 font-semibold text-xl">Seller</span>
-        <div className="border rounded-lg m-2 ml-5 text-xl w-3/4 px-3">
+        <div className=" border-2 rounded-lg m-2 ml-5 text-xl w-3/7 px-3">
           {array[0]}
         </div>
 
         <span className="ml-5 font-semibold text-xl">Price</span>
-        <div className="border rounded-lg m-2 ml-5 w-4/12 text-2xl px-3">
+        <div className="border-2 rounded-lg m-2 ml-5 w-4/12 text-2xl px-3">
           {Number(array[3] / BigInt("1000000000000000")) / 1000}
         </div>
         {Number(array[8]) > 0 ? (
           <>
             <span className="ml-5 font-semibold text-xl">Option Duration</span>
-            <div className="border rounded-lg m-2 ml-5 w-1/3 text-2xl px-3">
+            <div className="border-2 rounded-lg m-2 ml-5 w-1/3 text-2xl px-3">
               {Number(array[8])}
             </div>
             <span className="ml-5 font-semibold text-xl">Option Price</span>
-            <div className="border rounded-lg m-2 mb-5 ml-5 w-1/3 text-2xl px-3">
+            <div className="border-2 rounded-lg m-2 mb-5 ml-5 w-1/3 text-2xl px-3">
               {Number(array[7] / BigInt("1000000000000000")) / 1000}
             </div>
           </>
@@ -32,7 +32,7 @@ const card = ({ array }) => {
         )}
 
         <span className="ml-5 font-semibold text-xl">HM Tokens</span>
-        <div className="border rounded-lg m-2 mb-5 ml-5 w-1/3 text-2xl px-3">
+        <div className="border-2 rounded-lg m-2 mb-5 ml-5 w-1/3 text-2xl px-3">
           {Number(array[10])}
         </div>
 
