@@ -278,7 +278,7 @@ export async function unhashValues(hashedString) {
 
   return { store: value1, key: value2 };
 }
-export async function getAllEligiblePromotions(address) {
+export async function getAllEligiblePromotions() {
   await connectWithMetamask();
   // console.log(signer.address);
   const abi = registryAbi;
