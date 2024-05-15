@@ -514,6 +514,13 @@ export const registryAbi = [
   },
   {
     inputs: [],
+    name: "removeUsedPromotion",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "returnHmBalance",
     outputs: [
       {
@@ -578,4 +585,4 @@ export const registryAbi = [
   },
 ];
 
-export const registryAddress = "0x4747E73Be6e7f1C16A5b50D703C6E7EF07dB2653";
+export const registryAddress = "0x8359ac5e03a89d4d7f9507DdcEF6810075b2F189";

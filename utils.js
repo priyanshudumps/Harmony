@@ -278,3 +278,29 @@ export async function unhashValues(hashedString) {
 
   return { store: value1, key: value2 };
 }
+export async function getAllEligiblePromotions(address) {
+  await connectWithMetamask();
+  // console.log(signer.address);
+  const abi = registryAbi;
+  const address = registryAddress;
+  // console.log(address);
+  // console.log(abi);
+  // console.log(provider);
+  const contract = new ethers.Contract(address, abi, provider);
+  const tx = await contract.getAllEligiblePromotions(signer.address);
+  //await tx.wait();
+  //console.log(tx.toString());
+  return tx;
+}
+export async function removeUsedPromotion() {
+  const abi = registryAbi;
+  const address = registryAddress;
+  const contract = new ethers.Contract(address, abi, signer);
+  const gasPrice = parseUnits("20", "gwei");
+  const gasLimit = 300000;
+  const tx = await contract.removeUsedPromotion({
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+  });
+  console.log(tx);
+}
