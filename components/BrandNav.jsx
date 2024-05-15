@@ -24,12 +24,8 @@ export default function Nabvar() {
               href="/landing"
               className="flex items-center space-x-2 "
             >
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8"
-                alt="Harmony Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              
+              <span className="self-center text-3xl font-bold whitespace-nowrap text-black">
                 Harmony
               </span>
             </a>

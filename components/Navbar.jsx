@@ -24,12 +24,8 @@ export default function Nabvar() {
               href="#"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img
-                src="/images/"
-                className="h-8"
-                alt="Harmony Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+             
+              <span className="self-center text-3xl font-bold whitespace-nowrap text-black">
                 Harmony
               </span>
             </a>
@@ -43,7 +39,7 @@ export default function Nabvar() {
               type="button"
               className="text-white bg-blue-600 hover:bg-blue-800 focus:outline-none  rounded-lg text-md px-8 py-2 text-center "
             >
-              {userAddress}
+              {userAddress ? "connected" : "connect wallet"}
             </button>
           </div>
 
