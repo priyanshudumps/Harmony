@@ -7,7 +7,7 @@ export async function POST(req, res) {
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let code = "";
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 6; i++) {
       const randomIndex = Math.floor(Math.random() * characters.length);
       code += characters[randomIndex];
     }
@@ -17,20 +17,20 @@ export async function POST(req, res) {
 
   function cleanShopifyUrl(url) {
     // Remove the protocol (http:// or https://)
-    url = url.replace(/^https?:\/\//, '');
-  
+    url = url.replace(/^https?:\/\//, "");
+
     // Remove any path or query parameters after the domain
-    url = url.replace(/\/.*$/, '');
-  
+    url = url.replace(/\/.*$/, "");
+
     // Extract the subdomain and domain
-    const parts = url.split('.');
-  
-    if (parts.length >= 3 && parts[parts.length - 2] === 'myshopify') {
+    const parts = url.split(".");
+
+    if (parts.length >= 3 && parts[parts.length - 2] === "myshopify") {
       // Return the last 3 parts (subdomain.myshopify.com)
-      return parts.slice(-3).join('.');
+      return parts.slice(-3).join(".");
     } else {
       // Return an empty string if the URL is not in the expected format
-      return '';
+      return "";
     }
   }
   const reqBody = await req.json();
@@ -42,7 +42,6 @@ export async function POST(req, res) {
       shopName: cleanShopifyUrl(reqBody.shopName),
       accessToken: reqBody.accessToken,
     });
-
 
     // Define the discount code properties
 
