@@ -34,7 +34,7 @@ export default function Brand() {
           console.log(res);
         }}
       >
-        Join Harmony
+        {hasJoined ? "successfully joined" : "join harmony"}
       </button>
       </div>
       

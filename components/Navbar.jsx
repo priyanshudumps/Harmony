@@ -21,11 +21,11 @@ export default function Nabvar() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link legacyBehavior href="/landing">
             <a
-              href="https://flowbite.com/"
+              href="#"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <img
-                src="https://flowbite.com/docs/images/logo.svg"
+                src="/images/"
                 className="h-8"
                 alt="Harmony Logo"
               />
