@@ -585,4 +585,4 @@ export const registryAbi = [
   },
 ];
 
-export const registryAddress = "0x8359ac5e03a89d4d7f9507DdcEF6810075b2F189";
+export const registryAddress = "0xc7d9F7Ea6eEa72Cd8ffC7EAb413dFfa7513751c2";
