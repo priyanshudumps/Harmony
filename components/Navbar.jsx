@@ -90,7 +90,7 @@ export default function Nabvar() {
                     href="#"
                     className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black tracking-tight "
                   >
-                    Promotions
+                    My Rewards
                   </a>
                 </li>
               </Link>
@@ -101,7 +101,7 @@ export default function Nabvar() {
                     href="#"
                     className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black tracking-tight "
                   >
-                    Brand demo
+                    Brand Demo
                   </a>
                 </li>
               </Link>
