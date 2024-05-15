@@ -304,3 +304,35 @@ export async function removeUsedPromotion() {
   });
   console.log(tx);
 }
+
+export async function generateDiscountCode(
+  percentage,
+  code,
+  accessToken,
+  shopName
+) {
+  try {
+    const response = await fetch("/api/genPromoCode", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        percentage: percentage,
+        code: code,
+        accessToken: accessToken,
+        shopName: shopName,
+      }),
+    });
+    console.log(response);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } else {
+      console.log("An error occurred while creating the discount code.");
+    }
+  } catch (error) {
+    console.error("Error creating discount code:", error);
+  }
+}
