@@ -37,7 +37,7 @@ export default function Nabvar() {
                 connectWithMetamask();
               }}
               type="button"
-              className="text-white bg-blue-600 hover:bg-blue-800 focus:outline-none  rounded-lg text-md px-8 py-2 text-center "
+              className="text-white bg-blue-600 hover:bg-blue-800 focus:outline-none font-bold rounded-lg text-md px-8 py-2 text-center "
             >
               {userAddress ? "connected" : "connect wallet"}
             </button>
@@ -55,7 +55,7 @@ export default function Nabvar() {
                     className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black rounded  "
                     aria-current="page"
                   >
-                    <mark className="px-5 rounded-full tracking-tight bg-green-300 hover:bg-green-400">
+                    <mark className="px-3 rounded-full tracking-tight bg-green-300 hover:bg-green-400">
                       Add Sensor
                     </mark>
                   </a>
@@ -83,6 +83,18 @@ export default function Nabvar() {
                   </a>
                 </li>
               </Link>
+
+              <Link legacyBehavior href="/promotions">
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 px-3 md:p-0 mx-5 text-white hover:text-black tracking-tight "
+                  >
+                    Promotions
+                  </a>
+                </li>
+              </Link>
+              
               <Link legacyBehavior href="/brand">
                 <li>
                   <a

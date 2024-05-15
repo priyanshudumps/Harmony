@@ -6,7 +6,7 @@ const card = ({ array }) => {
   // }
   return (
     <div className="flex mx-8 w-3/7 justify-center content-center pb-5">
-      <div class="w-full   border-2 border-gray-800 rounded-xl shadow bg-gray-400 mt-14  backdrop-blur-lg pt-5">
+      <div class="w-1/2 border-2 border-gray-800 rounded-xl shadow bg-gray-400 mt-14  backdrop-blur-lg pt-5">
         <span className="ml-5 mt-5 font-semibold text-xl">Seller</span>
         <div className=" border-2 rounded-lg m-2 ml-5 text-xl w-3/7 px-3">
           {array[0]}
